@@ -6,7 +6,7 @@ function begForFood() {
   console.log("beg for food until bowl is full");
 }
 
-function pigOut() {
+function eatFood() {
   console.log("eat lots of food and make sure to spill it everywhere");
 }
 
@@ -17,9 +17,8 @@ function demandClaireOpensTheDoor() {
 function executeSigridsMorning() {
   wakeUpClaire();
   begForFood();
-  waitForFood();
-  pigOut();
-  demandSheOpensTheDoor();
+  eatFood();
+  demandClaireOpensTheDoor();
 }
 
 executeSigridsMorning();
