@@ -1,24 +1,25 @@
-function wakeUpClaire() {
-  console.log("meow until she wakes up");
+function peelThePotatoes() {
+  console.log("peeling always takes forever");
 }
 
-function begForFood() {
-  console.log("beg for food until bowl is full");
+function chopThePotatoes() {
+  console.log("not too small, not too big - perfect chunks!");
 }
 
-function eatFood() {
-  console.log("eat lots of food and make sure to spill it everywhere");
+function boilThePotatoes() {
+  console.log("perfectly done - fall apart without being mushy");
 }
 
-function demandClaireOpensTheDoor() {
-  console.log("demand Claire opens the garden door");
+function mashThePotatoes() {
+  console.log("at last! Proper mash");
 }
 
-function executeSigridsMorning() {
-  wakeUpClaire();
-  begForFood();
-  eatFood();
-  demandClaireOpensTheDoor();
+
+function makeSomeMash() {
+  peelThePotatoes();
+  chopThePotatoes();
+  boilThePotatoes();
+  mashThePotatoes();
 }
 
-executeSigridsMorning();
+makeSomeMash();

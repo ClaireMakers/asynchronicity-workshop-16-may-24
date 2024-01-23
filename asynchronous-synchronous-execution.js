@@ -1,35 +1,39 @@
-function wakeUpClaire() {
-  console.log("meow until she wakes up");
+function peelThePotatoes() {
+  console.log("peeling always takes forever");
 }
 
-function begForFood() {
-  console.log("beg for food until bowl is full");
+function chopThePotatoes() {
+  console.log("not too small, not too big");
 }
 
-function eatFood(boolean) {
-    return new Promise((resolve, reject) => {
-        if (boolean) {
-            resolve("eat lots of food and make sure to spill it everywhere");
-        }
-        else {
-            reject("ewwww, I hate that food - wait for some acceptable food instead")
-        }
-    }).then((successString) => {
-        console.log(successString)
-        demandClaireOpensTheDoor();
-    }).catch((errorString) => {
-        console.log(errorString);
-    })
+function boilThePotatoes() {
+  return new Promise((resolve, reject) => {
+      resolve("perfectly done - fall apart without being mushy");
+  }).then((string) => { 
+    console.log(string);
+  })
 }
 
-function demandClaireOpensTheDoor() {
-  console.log("demand Claire opens the garden door");
+
+function boilThePotatoesTwo() {
+  return new Promise((resolve, reject) => {
+    resolve("second run the potatoes");
+  }).then((string) => {
+    console.log(string);
+  });
 }
 
-function executeSigridsMorning() {
-  wakeUpClaire();
-  begForFood();
- eatFood(true);
+
+function mashThePotatoes() {
+  console.log("at last! Proper mash");
 }
 
-executeSigridsMorning();
+function makeSomeMash() {
+  peelThePotatoes();
+  chopThePotatoes();
+  setTimeout(boilThePotatoes, 1000);
+  boilThePotatoesTwo();
+  mashThePotatoes();
+}
+
+makeSomeMash();
