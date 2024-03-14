@@ -1,23 +1,3 @@
-// const firstFunction = () => { 
-//     console.log(1)
-// }
-
-// const secondFunction = () => { 
-//     return new Promise((resolve, reject) => { 
-//         resolve(2)
-//     }).then((number) => { 
-//         console.log(2);
-//     })
-// }
-
-// const thirdFunction = () => { 
-//     console.log(3)
-// }
-
-// firstFunction()
-// secondFunction()
-// thirdFunction()
-
 const array = [];
 array.push("pikachu");
 

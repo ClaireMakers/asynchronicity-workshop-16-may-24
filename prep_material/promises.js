@@ -17,7 +17,7 @@ const promiseToWakeUp = new Promise((resolve, reject) => {
     } else {
         reject("Claire doesn't wake up - Sigrid is mad");
     }
-    //calls .then() method on this new returned Promise
+        //calls .then() method on this new returned Promise
 }).then((successString) => {
     console.log(successString);
     return successString;
@@ -26,12 +26,16 @@ const promiseToWakeUp = new Promise((resolve, reject) => {
   //calls .then() method on this new returned Promise
 }).then((successString) => {
 
+    //CANT GET ANYTHING OUT OF A PROMISE! 
+
     array.push(successString);
     console.log(array);
 
 }).catch((errorString) => {
     console.log(errorString);
 })
+
+console.log(promiseToWakeUp)
 
 //Write fetch requests, which are promises
 //Fetch requests return promises
@@ -48,4 +52,24 @@ const fetchDataFromApi = () => {
 fetchDataFromApi().then((data) => {
   console.log(data);
 });
+
+
+
+
+function boilThePotatoes(boolean) {
+  return new Promise((resolve, reject) => {
+    if (boolean) {
+      resolve("perfectly done - fall apart without being mushy");
+    } else {
+      reject("oh no! Overboiled and awful, I have to restart again!");
+    }
+  })
+    .then((successString) => {
+      console.log(successString);
+      demandClaireOpensTheDoor();
+    })
+    .catch((errorString) => {
+      console.log(errorString);
+    });
+}
 
