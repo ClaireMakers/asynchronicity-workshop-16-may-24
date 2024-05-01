@@ -5,15 +5,14 @@ function peelThePotatoes() {
 function chopThePotatoes() {
   console.log("not too small, not too big");
 }
+const array = [];
 
 function boilThePotatoes() {
   return new Promise((resolve, reject) => {
-    console.log("perfectly done - fall apart without being mushy");
-    reject("wrong");
-  }).then(() => { 
-    mashThePotatoes();
-  }).catch((error) => { 
-    console.log(error)
+    resolve("perfectly done - fall apart without being mushy");
+  }).then((string) => {
+    array.push("here")
+    console.log(string);
   })
 }
 
@@ -25,6 +24,8 @@ function makeSomeMash() {
   peelThePotatoes();
   chopThePotatoes();
   boilThePotatoes();
+  mashThePotatoes();
+  console.log(array)
 }
 
 makeSomeMash();
