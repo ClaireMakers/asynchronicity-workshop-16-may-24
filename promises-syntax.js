@@ -1,77 +1,73 @@
 //Class in JavaScript - in-built in the language and always accessible
 //Promises have three different states:
-// rejected - condition wasn't met somewhere - error - 400/500
-// resolved - success - we get back the data from the server - 200
-// pending - waiting for it to either rejected or fulfilled - no response yet
+// - Pending - Asynchronous task is not complete yet
+// - Resolved/fulfilled - Successfully completed 
+// - Rejected - Task has failed 
 
-//Write a Promise Object from scratch
-const promiseToBoilThePotatoes = new Promise((resolve, reject) => { 
-    // either the potatoes are cooked perfectly
-    // or they are overboiled
-    let fulfilled = false; 
+
+
+//Syntax of promises:
+
+// const array = [];
+
+const promiseToBoilThePotatoes = new Promise((resolve, reject) => {
+
+    let fulfilled = true; 
 
     if (fulfilled) {
-        resolve("perfectly done - fall apart without being mushy"); // returns a new promise
+        resolve("3 - perfectly done - fall apart without being mushy");
     } else { 
-        reject("overboiled - have to start again")
+        reject("error - overdone potatoes, start again!");
     }
-
+   
 }).then((string) => { 
-    // console.log(string);
-    return string; //returns a new promise
+    array.push(string);
+    console.log(array)
+    return string;
+}).then((data) => { 
+    console.log(data)
 }).catch((error) => { 
-    // console.log(error)
+    console.log(error);
 })
 
-// console.log(promiseToBoilThePotatoes);
+// console.log(array);
 
-// Promise { 
-//     constructor(resolve, reject) { 
-//         //some kind of initialisation here
-//     }
+/* Promise { 
+    constructor((resolve, reject) => {})
 
-//     then() { 
+   then(returned data from the promise above in the chain) {
+        returns a new promise
+   }
 
-//     }
+   catch(the error data returned in the rejected promise) {
+        error handling here
+   }
 
-//     catch() {
-
-//     }
-// }
+}*/
 
 
-//Write fetch requests, which are promises
-//Fetch requests return promises
+//Sending fetch requests - promises under the hood
 
-const fetchVulpix = () => { 
-    return fetch("https://pokeapi.co/api/v2/pokemon/vulpix").then((response) => {
-        return response.json()
-    }).then((data) => { 
-        return data; 
-    })
+const fetchPokemonData = () => { 
+    return fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+        .then((pokemonData) => { //rejected promise
+            if (pokemonData.status == 404) {
+                return new Promise((resolve, reject) => {
+                    reject("404 - not found");
+                })
+            } else { //fulfilled promise
+                const data = pokemonData.json();
+                return data;
+            }
+      })
+      .then((dittoObject) => {
+        console.log(dittoObject);
+        return dittoObject.name;
+      })
+      .catch((error) => {
+        console.log("HERE");
+        console.log(error);
+      });
 }
 
-// fetchVulpix().then((data) => { console.log(data.name) });
-
-console.log(fetchVulpix());
-
-
-//Async-await is synctatic sugar for promises, which means they are the same, and work the same as promises written
-//with .then() chains
-
-let url = "https://pokeapi.co/api/v2/pokemon/pikachu";
-
-const fetchPikachu = async (url) => {
-    try {
-
-        let response = await fetch(url);
-        let data = await response.json(); 
-        console.log(data)
-
-    } catch (error) { 
-        console.log(error)
-    }
-}
-
-fetchPikachu(url)
-
+fetchPokemonData().then((dittoName) => { console.log(dittoName) });

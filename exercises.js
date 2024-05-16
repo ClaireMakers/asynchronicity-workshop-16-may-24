@@ -1,4 +1,5 @@
 const array = [];
+
 array.push("pikachu");
 
 const addVulpix = () => {
